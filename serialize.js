@@ -8,7 +8,7 @@ const keys = Object.keys
  * Transform given object/collection to form-data
  *
  * @param {object} object – An object to transform
- * @param {string} [root = null] – A root key for fieldname
+ * @param {string} [root = null] – Root key of a fieldname
  *
  * @return {FormData} instance
  */
