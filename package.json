@@ -1,0 +1,20 @@
+{
+  "name": "object-to-form-data",
+  "version": "0.1.0",
+  "description": "Serialize given object/collection to a FormData.",
+  "repository": "https://github.com/octet-stream/object-to-form-data",
+  "author": "Nick K. <nick.kruchinin@gmail.com>",
+  "license": "MIT",
+  "main": "serialize.js",
+  "devDependencies": {
+    "@octetstream/eslint-config": "2.0.2",
+    "ava": "0.22.0",
+    "eslint": "4.8.0",
+    "eslint-plugin-ava": "^4.2.2",
+    "nyc": "11.2.1"
+  },
+  "dependencies": {
+    "isomorphic-form-data": "1.0.0",
+    "lodash.isplainobject": "^4.0.6"
+  }
+}

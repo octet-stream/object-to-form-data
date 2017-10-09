@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    "ava"
+  ],
+  "extends": [
+    "@octetstream",
+    "plugin:ava/recommended"
+  ]
+}
