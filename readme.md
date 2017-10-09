@@ -30,7 +30,7 @@ const object = {
 }
 
 // You will receive a FormData instance with all fields of given object
-const body = serialize()
+const body = serialize(object)
 
 const onResponse = res => res.json()
 
