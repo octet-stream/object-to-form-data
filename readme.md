@@ -31,12 +31,16 @@ const object = {
 // You will receive a FormData instance with all fields of given object
 const body = serialize(object)
 
+const options = {
+  method: "POST", body
+}
+
 const onResponse = res => res.json()
 
-const onFulfilled = data => console.log(data)
+const onData = data => console.log(data)
 
-const onRejected = err => console.error(err)
+const onError = err => console.error(err)
 
-fetch("https://api.whatever.co/pong", {method: "POST", body})
-  .then(onResponse).then(onFulfilled, onRejected)
+fetch("https://api.whatever.co/pong", options)
+  .then(onResponse).then(onData, onError)
 ```

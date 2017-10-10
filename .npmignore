@@ -1,0 +1,13 @@
+yarn-error.log
+npm-debug.log
+node_modules
+coverage
+.nyc_output
+.DS_Store
+
+.editorconfig
+.travis.yml
+.eslintrc.json
+yarn.lock
+test.js
+mock.js

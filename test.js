@@ -5,7 +5,7 @@ const serialize = require("./serialize")
 test("Should always return a FormData instance", t => {
   t.plan(1)
 
-  const fd = serialize({name: "Glim Glam"})
+  const fd = serialize({})
 
   t.true(fd instanceof FormData)
 })
