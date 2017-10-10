@@ -14,7 +14,6 @@ Good to use with [then-busboy](https://github.com/octet-stream/then-busboy)
 
 ```js
 import serialize from "object-to-form-data"
-import fetch from "isomorphic-fetch"
 
 const object = {
   message: {
