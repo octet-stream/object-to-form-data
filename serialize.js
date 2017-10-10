@@ -1,4 +1,3 @@
-const FormData = require("isomorphic-form-data")
 const isPlainObject = require("lodash.isplainobject")
 
 const isArray = Array.isArray
@@ -16,27 +15,27 @@ function serialize(object, root = null) {
   const fd = new FormData()
 
   /**
-   * Append object fields to FormData instance
+   * Set object fields to FormData instance
    *
-   * @param {string} [name = undefined] – parent field key
+   * @param {string} [prefix = undefined] – parent field key
    * @param {any} value – A value of the current field
    *
    * @api private
    */
-  function append(name, value) {
+  function set(prefix, value) {
     for (const key of keys(value)) {
-      const fieldname = name ? `${name}[${key}]` : key
+      const fieldname = prefix ? `${prefix}[${key}]` : key
       const field = value[key]
 
       if (isArray(field) || isPlainObject(field)) {
-        append(fieldname, field)
+        set(fieldname, field)
       } else {
-        fd.append(fieldname, field)
+        fd.set(fieldname, field)
       }
     }
   }
 
-  append(root, object)
+  set(root, object)
 
   return fd
 }
