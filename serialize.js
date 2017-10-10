@@ -12,6 +12,10 @@ const keys = Object.keys
  * @return {FormData} instance
  */
 function serialize(object, root = null) {
+  if (!(isArray(object) || isPlainObject(object))) {
+    throw new TypeError("Expected object or array as the first argument.")
+  }
+
   const fd = new FormData()
 
   /**

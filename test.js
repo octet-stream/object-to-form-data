@@ -29,3 +29,23 @@ test("Should correctly create a FormData from flat object", t => {
   t.is(fd.get("age"), person.age)
   t.is(fd.get("career"), person.career)
 })
+
+test("Should throw a TypeError when no argument passed", t => {
+  t.plan(3)
+
+  const err = t.throws(serialize)
+
+  t.true(err instanceof TypeError)
+  t.is(err.message, "Expected object or array as the first argument.")
+})
+
+test("Should throw a TypeError even if passed only the second argument", t => {
+  t.plan(3)
+
+  const trap = () => serialize(undefined, "root")
+
+  const err = t.throws(trap)
+
+  t.true(err instanceof TypeError)
+  t.is(err.message, "Expected object or array as the first argument.")
+})
