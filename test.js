@@ -30,6 +30,28 @@ test("Should correctly create a FormData from flat object", t => {
   t.is(fd.get("career"), person.career)
 })
 
+test("Should correctly create a FormData for object with nested fields", t => {
+  t.plan(6)
+
+  const object = {
+    birth: {
+      day: 12,
+      month: "Mar.",
+      year: 1986
+    }
+  }
+
+  const fd = serialize(object)
+
+  t.true(fd.has("birth[day]"))
+  t.true(fd.has("birth[month]"))
+  t.true(fd.has("birth[year]"))
+
+  t.is(fd.get("birth[day]"), object.birth.day)
+  t.is(fd.get("birth[month]"), object.birth.month)
+  t.is(fd.get("birth[year]"), object.birth.year)
+})
+
 test("Should throw a TypeError when no argument passed", t => {
   t.plan(3)
 
