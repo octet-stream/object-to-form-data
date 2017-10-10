@@ -16,13 +16,14 @@
     "test": "node_modules/.bin/ava test.js",
     "coverage": "node_modules/.bin/nyc yarn test",
     "report": "yarn coverage && node_modules/.bin/nyc report --reporter=html yarn test",
-    "ci": "yarn coverage && node_modules/.bin/nyc report --reporter=lcov yarn test",
+    "ci": "yarn coverage && node_modules/.bin/nyc report --reporter=lcov yarn test && node_modules/.bin/codecov",
     "precommit": "yarn lint",
     "prepush": "yarn report"
   },
   "devDependencies": {
     "@octetstream/eslint-config": "2.0.2",
     "ava": "0.22.0",
+    "codecov": "2.3.0",
     "eslint": "4.8.0",
     "eslint-plugin-ava": "4.2.2",
     "husky": "0.14.3",
