@@ -1,3 +1,4 @@
+const FormData = require("formdata-node").default
 const isPlainObject = require("lodash.isplainobject")
 
 const isArray = Array.isArray

@@ -6,10 +6,8 @@
   "author": "Nick K. <nick.kruchinin@gmail.com>",
   "license": "MIT",
   "main": "serialize.js",
-  "ava": {
-    "require": [
-      "./mock.js"
-    ]
+  "browser": {
+    "formdata-node": "./form-data"
   },
   "scripts": {
     "lint": "node_modules/.bin/eslint mock.js serialize.js test.js",
@@ -30,6 +28,7 @@
     "nyc": "11.2.1"
   },
   "dependencies": {
+    "formdata-node": "^0.1.0",
     "lodash.isplainobject": "4.0.6"
   }
 }

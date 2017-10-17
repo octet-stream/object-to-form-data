@@ -1,5 +1,7 @@
 const test = require("ava")
 
+const FormData = require("formdata-node").default
+
 const serialize = require("./serialize")
 
 test("Should always return a FormData instance", t => {
@@ -26,7 +28,7 @@ test("Should correctly create a FormData from flat object", t => {
   t.true(fd.has("career"))
 
   t.is(fd.get("name"), person.name)
-  t.is(fd.get("age"), person.age)
+  t.is(fd.get("age"), String(person.age))
   t.is(fd.get("career"), person.career)
 })
 
@@ -47,9 +49,9 @@ test("Should correctly create a FormData for object with nested fields", t => {
   t.true(fd.has("birth[month]"))
   t.true(fd.has("birth[year]"))
 
-  t.is(fd.get("birth[day]"), object.birth.day)
+  t.is(fd.get("birth[day]"), String(object.birth.day))
   t.is(fd.get("birth[month]"), object.birth.month)
-  t.is(fd.get("birth[year]"), object.birth.year)
+  t.is(fd.get("birth[year]"), String(object.birth.year))
 })
 
 test("Should throw a TypeError when no argument passed", t => {
