@@ -11,7 +11,7 @@ Good to use with [then-busboy](https://github.com/octet-stream/then-busboy)
 
 ## API
 
-`serialize(object[, root]) -> FormData`
+`serialize(object[, root]) -> {FormData}`
 
   * **{object}** object – An object to transform
   * **{string}** root – Root key of a fieldname
