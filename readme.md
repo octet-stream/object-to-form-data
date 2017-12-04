@@ -18,7 +18,7 @@ Good to use with [then-busboy](https://github.com/octet-stream/then-busboy)
 ## Usage
 
 ```js
-import serialize from "object-to-form-data"
+import serialize from "@octetstream/object-to-form-data"
 
 const object = {
   message: {
