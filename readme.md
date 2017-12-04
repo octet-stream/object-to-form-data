@@ -8,12 +8,11 @@ Good to use with [then-busboy](https://github.com/octet-stream/then-busboy)
 [![Build Status](https://travis-ci.org/octet-stream/object-to-form-data.svg?branch=master)](https://travis-ci.org/octet-stream/object-to-form-data)
 [![Code Coverage](https://codecov.io/github/octet-stream/object-to-form-data/coverage.svg?branch=master)](https://codecov.io/github/octet-stream/object-to-form-data?branch=master)
 
-
 ## API
 
 `serialize(object[, root]) -> {FormData}`
 
-  * **{object}** object – An object to transform
+  * **{object}** object – Object to transform
   * **{string}** root – Root key of a fieldname
 
 ## Usage
@@ -47,6 +46,6 @@ const onData = data => console.log(data)
 
 const onError = err => console.error(err)
 
-fetch("https://api.whatever.co/pong", options)
+fetch("https://api.whatever.co/ping", options)
   .then(onResponse).then(onData, onError)
 ```
