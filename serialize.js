@@ -1,4 +1,4 @@
-const FormData = require("formdata-node").default
+const FormData = require("./form-data")
 const isPlainObject = require("lodash.isplainobject")
 
 const isArray = Array.isArray
@@ -17,7 +17,7 @@ function serialize(object, root = null) {
     throw new TypeError("Expected object or array as the first argument.")
   }
 
-  const fd = new FormData()
+  const data = new FormData()
 
   /**
    * Set object fields to FormData instance
@@ -35,14 +35,14 @@ function serialize(object, root = null) {
       if (isArray(field) || isPlainObject(field)) {
         set(fieldname, field)
       } else {
-        fd.set(fieldname, field)
+        data.set(fieldname, field)
       }
     }
   }
 
   set(root, object)
 
-  return fd
+  return data
 }
 
 module.exports = serialize

@@ -10,7 +10,7 @@
     "node": ">=7.6"
   },
   "browser": {
-    "formdata-node": "./form-data"
+    "./form-data": "./form-data-browser"
   },
   "scripts": {
     "lint": "node_modules/.bin/eslint mock.js serialize.js test.js",
@@ -23,15 +23,19 @@
   },
   "devDependencies": {
     "@octetstream/eslint-config": "2.1.0",
-    "ava": "0.23.0",
+    "ava": "0.25.0",
     "codecov": "3.0.0",
-    "eslint": "4.10.0",
-    "eslint-plugin-ava": "4.2.2",
+    "eslint": "4.17.0",
+    "eslint-plugin-ava": "4.5.0",
+    "formdata-node": "0.3.3",
     "husky": "0.14.3",
-    "nyc": "11.2.1"
+    "nyc": "11.4.1",
+    "proxyquire": "^1.8.0"
+  },
+  "peerDependencies": {
+    "formdata-node": "0.3.3"
   },
   "dependencies": {
-    "formdata-node": "^0.3.0",
     "lodash.isplainobject": "4.0.6"
   }
 }
