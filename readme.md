@@ -23,11 +23,11 @@ import serialize from "@octetstream/object-to-form-data"
 const object = {
   message: {
     sender: "Glim Glam",
-    text: "Some whatever text message.",
+    text: "Can you believe it, Trixie?",
     attachments: [
       {
-        file: File, // this field will be represended as a File instance
-        description: "Here is a description of the file"
+        file: File, // this field will be represended as a window.File instance
+        description: "I beat Twilight Sparkle and all I got was this lousy t-shirt."
       }
     ]
   }
