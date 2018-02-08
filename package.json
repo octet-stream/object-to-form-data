@@ -1,6 +1,6 @@
 {
   "name": "@octetstream/object-to-form-data",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Serialize given object/collection to a FormData.",
   "repository": "https://github.com/octet-stream/object-to-form-data",
   "author": "Nick K. <nick.kruchinin@gmail.com>",
@@ -30,7 +30,7 @@
     "formdata-node": "0.3.3",
     "husky": "0.14.3",
     "nyc": "11.4.1",
-    "proxyquire": "^1.8.0"
+    "proxyquire": "1.8.0"
   },
   "peerDependencies": {
     "formdata-node": "0.3.3"
