@@ -12,8 +12,8 @@ const keys = Object.keys
  *
  * @return {FormData} instance
  */
-function serialize(object, root = null) {
-  if (!(isArray(object) || isPlainObject(object))) {
+function serialize(iterable, root = null) {
+  if (!(isArray(iterable) || isPlainObject(iterable))) {
     throw new TypeError("Expected object or array as the first argument.")
   }
 
@@ -40,7 +40,7 @@ function serialize(object, root = null) {
     }
   }
 
-  set(root, object)
+  set(root, iterable)
 
   return data
 }
