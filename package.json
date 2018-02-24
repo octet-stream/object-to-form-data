@@ -6,6 +6,7 @@
   "author": "Nick K. <nick.kruchinin@gmail.com>",
   "license": "MIT",
   "main": "serialize.js",
+  "types": "serialize.d.ts",
   "engines": {
     "node": ">=7.6"
   },
