@@ -17,6 +17,8 @@ function serialize(iterable, root = null) {
     throw new TypeError("Expected object or array as the first argument.")
   }
 
+  const method = typeof FormData.prototype.set === "function" ? "set" : "append"
+
   const data = new FormData()
 
   /**
@@ -35,7 +37,7 @@ function serialize(iterable, root = null) {
       if (isArray(field) || isPlainObject(field)) {
         set(fieldname, field)
       } else {
-        data.set(fieldname, field)
+        data[method](fieldname, field)
       }
     }
   }
