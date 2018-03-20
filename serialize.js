@@ -36,6 +36,8 @@ function serialize(iterable, root = null) {
 
       if (isArray(field) || isPlainObject(field)) {
         set(fieldname, field)
+      } else if(typeof field === 'boolean') {
+        if(field) data[method](fieldname, field)
       } else {
         data[method](fieldname, field)
       }
