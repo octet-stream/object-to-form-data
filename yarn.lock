@@ -74,6 +74,12 @@
   dependencies:
     sprintf-js "1.1.1"
 
+"@octetstream/object-to-form-data@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@octetstream/object-to-form-data/-/object-to-form-data-0.3.1.tgz#8daae3267f30c09c1f0ee3d63ba93493a6bd733d"
+  dependencies:
+    lodash.isplainobject "4.0.6"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
