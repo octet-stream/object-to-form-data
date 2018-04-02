@@ -54,6 +54,34 @@ test("Should correctly create a FormData for object with nested fields", t => {
   t.is(fd.get("birth[year]"), String(object.birth.year))
 })
 
+test("Should skip \"false\" booleans in strict mode", t => {
+  t.plan(4)
+
+  const fd = serialize.strict({
+    trueValue: true,
+    string: "In Soviet Moon, landscape see binoculars through YOU.",
+    falseValue: false,
+    number: 42
+  })
+
+  t.true(fd.has("trueValue"))
+  t.true(fd.has("string"))
+  t.false(fd.has("falseValue"))
+  t.true(fd.has("number"))
+})
+
+test("Should allow booleans as the second argument", t => {
+  t.plan(1)
+
+  t.false(serialize({falseValue: false}, true).has("falseValue"))
+})
+
+test("Should allow string as the second argument", t => {
+  t.plan(1)
+
+  t.true(serialize({name: "John Doe"}, "root").has("root[name]"))
+})
+
 test("Should throw a TypeError when no argument passed", t => {
   t.plan(3)
 
@@ -73,3 +101,21 @@ test("Should throw a TypeError even if passed only the second argument", t => {
   t.true(err instanceof TypeError)
   t.is(err.message, "Expected object or array as the first argument.")
 })
+
+test(
+  "Should throw a TypeError when second argument is not kind of " +
+  "string, boolean or object type",
+  t => {
+    t.plan(3)
+
+    const trap = () => serialize({}, 42)
+
+    const err = t.throws(trap)
+
+    t.true(err instanceof TypeError)
+    t.is(
+      err.message,
+      "The second argument can be an object, boolean or string value."
+    )
+  }
+)
