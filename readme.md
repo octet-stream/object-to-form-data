@@ -10,10 +10,15 @@ Good to use with [then-busboy](https://github.com/octet-stream/then-busboy)
 
 ## API
 
-`serialize(object[, root]) -> {FormData}`
+`serialize(object[, options]) -> {FormData}`
 
   * **{object}** object – Object to transform
-  * **{string}** root – Root key of a fieldname
+  * **{object | string | boolean}** options – Serialization options.
+    This argument might be an object with "root" and "strict" parameters.
+    Or you can pass one of them as the second argument:
+      + **{boolean}** [strict = false] – if set to `true`, all `false` boolean
+        values will be omitted.
+      + **{string}** [root = null] – Just a root key of all fieldnames
 
 ## Usage
 
@@ -49,3 +54,9 @@ const onError = err => console.error(err)
 fetch("https://api.whatever.co/ping", options)
   .then(onResponse).then(onData, onError)
 ```
+
+**Important!** If you're using this library for Node.js environments,
+you also need the [formdata-node](https://github.com/octet-stream/form-data)
+to serialize your objects/collections.
+See documentation of this implementation to learn how to send queries
+with that implementation.
