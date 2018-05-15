@@ -31,7 +31,7 @@ const object = {
     text: "Can you believe it, Trixie?",
     attachments: [
       {
-        file: File, // this field will be represended as a window.File instance
+        file: File, // this field will be represented as a window.File instance
         description: "I beat Twilight Sparkle and all I got was this lousy t-shirt."
       }
     ]
