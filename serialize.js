@@ -1,11 +1,9 @@
 const FormData = require("./form-data")
+const isPlainObject = require("./isPlainObject")
 
-// TODO: Reduce the size by removing lodash.isplainobject
-const isPlainObject = require("lodash.isplainobject")
+const {assign, keys} = Object
 
 const isArray = Array.isArray
-const assign = Object.assign
-const keys = Object.keys
 
 const isFunction = value => typeof value === "function"
 

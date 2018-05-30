@@ -16,7 +16,7 @@
   "size-limit": [
     {
       "path": "serialize.js",
-      "limit": "711 B"
+      "limit": "605 B"
     }
   ],
   "scripts": {
@@ -32,19 +32,16 @@
   "devDependencies": {
     "@octetstream/eslint-config": "2.1.0",
     "ava": "0.25.0",
-    "codecov": "3.0.0",
-    "eslint": "4.17.0",
-    "eslint-plugin-ava": "4.5.0",
-    "formdata-node": "0.3.3",
+    "codecov": "3.0.2",
+    "eslint": "4.19.1",
+    "eslint-plugin-ava": "4.5.1",
+    "formdata-node": "1.0.1",
     "husky": "0.14.3",
-    "nyc": "11.4.1",
-    "proxyquire": "1.8.0",
+    "nyc": "11.8.0",
+    "proxyquire": "2.0.1",
     "size-limit": "^0.18.1"
   },
   "peerDependencies": {
     "formdata-node": "0.3.3"
-  },
-  "dependencies": {
-    "lodash.isplainobject": "4.0.6"
   }
 }
