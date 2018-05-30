@@ -3,6 +3,7 @@ const test = require("ava")
 const FormData = require("formdata-node").default
 
 const serialize = require("./serialize")
+const isPlainObject = require("./isPlainObject")
 
 test("Should always return a FormData instance", t => {
   t.plan(1)
@@ -119,3 +120,22 @@ test(
     )
   }
 )
+
+// Tests for isPlainObject
+test("isPlainObject: Should return true on object created from literal", t => {
+  t.plan(1)
+
+  t.true(isPlainObject({}))
+})
+
+test("isPlainObject: Should return true on Object.create(null) objects", t => {
+  t.plan(1)
+
+  t.true(isPlainObject(Object.create(null)))
+})
+
+test("isPlainObject: Should return false on non-object value", t => {
+  t.plan(1)
+
+  t.false(isPlainObject(451))
+})
