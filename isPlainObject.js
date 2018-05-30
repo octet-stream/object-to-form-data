@@ -9,7 +9,7 @@ function isPlainObject(val) {
 
   const proto = getPrototype(val)
 
-  if (proto === null || proto === undefined) {
+  if (proto == null) {
     return true
   }
 

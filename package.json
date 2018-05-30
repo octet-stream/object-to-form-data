@@ -16,7 +16,7 @@
   "size-limit": [
     {
       "path": "serialize.js",
-      "limit": "605 B"
+      "limit": "597 B"
     }
   ],
   "scripts": {
