@@ -13,13 +13,20 @@
   "browser": {
     "./form-data": "./form-data-browser"
   },
+  "size-limit": [
+    {
+      "path": "serialize.js",
+      "limit": "711 B"
+    }
+  ],
   "scripts": {
+    "limit": "node_modules/.bin/size-limit",
     "lint": "node_modules/.bin/eslint mock.js serialize.js test.js",
     "test": "node_modules/.bin/ava test.js",
     "coverage": "node_modules/.bin/nyc yarn test",
     "report": "yarn coverage && node_modules/.bin/nyc report --reporter=html yarn test",
     "ci": "yarn coverage && node_modules/.bin/nyc report --reporter=lcov yarn test && node_modules/.bin/codecov",
-    "precommit": "yarn lint",
+    "precommit": "yarn lint && yarn limit",
     "prepush": "yarn report"
   },
   "devDependencies": {
@@ -31,7 +38,8 @@
     "formdata-node": "0.3.3",
     "husky": "0.14.3",
     "nyc": "11.4.1",
-    "proxyquire": "1.8.0"
+    "proxyquire": "1.8.0",
+    "size-limit": "^0.18.1"
   },
   "peerDependencies": {
     "formdata-node": "0.3.3"

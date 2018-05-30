@@ -1,4 +1,6 @@
 const FormData = require("./form-data")
+
+// TODO: Reduce the size by removing lodash.isplainobject
 const isPlainObject = require("lodash.isplainobject")
 
 const isArray = Array.isArray
@@ -66,7 +68,7 @@ function serialize(iterable, options = {}) {
       if (isArray(field) || isPlainObject(field)) {
         set(name, field)
       } else {
-        if ((options.strict && (isBoolean(field) && field === false))) {
+        if (options.strict && (isBoolean(field) && field === false)) {
           continue
         }
 
