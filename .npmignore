@@ -8,5 +8,8 @@ coverage
 .editorconfig
 .travis.yml
 .eslintrc.json
+.huskyrc.json
+.size-limit.js
+.lintstagedrc
 yarn.lock
 test.js
