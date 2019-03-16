@@ -2,46 +2,40 @@
   "name": "@octetstream/object-to-form-data",
   "version": "1.0.1",
   "description": "Serialize given object/collection to a FormData.",
-  "repository": "https://github.com/octet-stream/object-to-form-data",
+  "repository": "octet-stream/object-to-form-data",
   "author": "Nick K. <nick.kruchinin@gmail.com>",
   "license": "MIT",
   "main": "serialize.js",
   "types": "serialize.d.ts",
   "engines": {
-    "node": ">=7.6"
+    "node": ">= 8"
   },
   "browser": {
     "./form-data": "./form-data-browser"
   },
-  "size-limit": [
-    {
-      "path": "serialize.js",
-      "limit": "597 B"
-    }
-  ],
   "scripts": {
-    "limit": "node_modules/.bin/size-limit",
-    "lint": "node_modules/.bin/eslint mock.js serialize.js test.js",
-    "test": "node_modules/.bin/ava test.js",
-    "coverage": "node_modules/.bin/nyc yarn test",
-    "report": "yarn coverage && node_modules/.bin/nyc report --reporter=html yarn test",
-    "ci": "yarn coverage && node_modules/.bin/nyc report --reporter=lcov yarn test && node_modules/.bin/codecov",
-    "precommit": "yarn lint && yarn limit",
-    "prepush": "yarn report"
+    "limit": "size-limit",
+    "staged": "lint-staged",
+    "lint": "eslint serialize.js test.js",
+    "test": "ava test.js",
+    "coverage": "nyc npm run test",
+    "report": "npm run coverage && nyc report --reporter=html npm run test",
+    "ci": "npm run coverage && nyc report --reporter=lcov npm run test && codecov"
   },
   "devDependencies": {
-    "@octetstream/eslint-config": "2.1.0",
+    "@octetstream/eslint-config": "3.0.0",
     "ava": "0.25.0",
-    "codecov": "3.0.2",
-    "eslint": "4.19.1",
-    "eslint-plugin-ava": "4.5.1",
-    "formdata-node": "~0.3.3 || 1.x",
-    "husky": "0.14.3",
-    "nyc": "12.0.1",
-    "proxyquire": "2.0.1",
-    "size-limit": "^0.18.1"
+    "codecov": "3.2.0",
+    "eslint": "5.15.2",
+    "eslint-plugin-ava": "5.1.1",
+    "formdata-node": "1.5.1",
+    "husky": "1.3.1",
+    "lint-staged": "^8.1.5",
+    "nyc": "13.3.0",
+    "proxyquire": "2.1.0",
+    "size-limit": "0.21.1"
   },
   "peerDependencies": {
-    "formdata-node": "~0.3.3 || 1.x"
+    "formdata-node": "~0.3.4 || 1.x"
   }
 }

@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "pre-commit": "npm run staged && npm run limit",
+    "pre-push": "npm run report"
+  }
+}
