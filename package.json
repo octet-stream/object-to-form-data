@@ -19,8 +19,8 @@
     "lint": "eslint serialize.js test.js",
     "test": "ava test.js",
     "coverage": "nyc npm run test",
-    "report": "npm run coverage && nyc report --reporter=html npm run test",
-    "ci": "npm run coverage && nyc report --reporter=lcov npm run test && codecov"
+    "report": "npm run coverage && nyc report --reporter=html",
+    "ci": "npm run coverage && nyc report --reporter=lcov && codecov"
   },
   "devDependencies": {
     "@octetstream/eslint-config": "3.0.0",
