@@ -1,5 +1,5 @@
 {
-  "name": "object-to-form-data",
+  "name": "@octetstream/object-to-form-data",
   "version": "1.1.0",
   "description": "Serialize given object/collection to a FormData.",
   "repository": "octet-stream/object-to-form-data",
