@@ -1,7 +1,7 @@
 const FormData = require("./form-data")
 const isPlainObject = require("./isPlainObject")
 
-const {assign, keys} = Object
+const {keys} = Object
 
 const isArray = Array.isArray
 
@@ -41,7 +41,7 @@ function serialize(iterable, options = {}) {
     )
   }
 
-  options = assign({}, defaults, options)
+  options = {...defaults, ...options}
 
   // Choose the serialization method for browsers which
   // are support FormData API partially
