@@ -19,10 +19,10 @@ const defaults = {
 /**
  * Transform given object/collection to form-data
  *
- * @param {object | array} object – An object to transform
+ * @param {Object.<string, any> | any[]} object – An object to transform
  * @param {string} [root = null] – Root key of a fieldname
  *
- * @return {FormData} instance
+ * @return {FormData}
  */
 function serialize(iterable, options = {}) {
   if (!(isArray(iterable) || isPlainObject(iterable))) {

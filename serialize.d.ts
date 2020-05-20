@@ -1,10 +1,10 @@
-type TIterable = any[] | {[key : string] : any}
+type Iterable = any[] | {[key: string]: any}
 
-type TOptions = boolean | string | {
-  root ?: string,
-  strict ?: boolean
+type Options = boolean | string | {
+  root?: string,
+  strict?: boolean
 }
 
-declare function serialize(iterable : TIterable, root ?: TOptions) : FormData
+declare function serialize(iterable: Iterable, root?: Options | string | boolean) : FormData
 
 export default serialize

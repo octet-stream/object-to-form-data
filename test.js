@@ -6,16 +6,12 @@ const serialize = require("./serialize")
 const isPlainObject = require("./isPlainObject")
 
 test("Should always return a FormData instance", t => {
-  t.plan(1)
-
   const fd = serialize({})
 
   t.true(fd instanceof FormData)
 })
 
 test("Should correctly create a FormData from flat object", t => {
-  t.plan(6)
-
   const person = {
     name: "J. Doe",
     age: 21,
@@ -34,8 +30,6 @@ test("Should correctly create a FormData from flat object", t => {
 })
 
 test("Should correctly create a FormData for object with nested fields", t => {
-  t.plan(6)
-
   const object = {
     birth: {
       day: 12,
@@ -56,8 +50,6 @@ test("Should correctly create a FormData for object with nested fields", t => {
 })
 
 test("Should skip \"false\" booleans in strict mode", t => {
-  t.plan(4)
-
   const fd = serialize.strict({
     trueValue: true,
     string: "In Soviet Moon, landscape see binoculars through YOU.",
@@ -72,20 +64,14 @@ test("Should skip \"false\" booleans in strict mode", t => {
 })
 
 test("Should allow booleans as the second argument", t => {
-  t.plan(1)
-
   t.false(serialize({falseValue: false}, true).has("falseValue"))
 })
 
 test("Should allow string as the second argument", t => {
-  t.plan(1)
-
   t.true(serialize({name: "John Doe"}, "root").has("root[name]"))
 })
 
 test("Should throw a TypeError when no argument passed", t => {
-  t.plan(3)
-
   const err = t.throws(serialize)
 
   t.true(err instanceof TypeError)
@@ -93,8 +79,6 @@ test("Should throw a TypeError when no argument passed", t => {
 })
 
 test("Should throw a TypeError even if passed only the second argument", t => {
-  t.plan(3)
-
   const trap = () => serialize(undefined, "root")
 
   const err = t.throws(trap)
@@ -107,8 +91,6 @@ test(
   "Should throw a TypeError when second argument is not kind of " +
   "string, boolean or object type",
   t => {
-    t.plan(3)
-
     const trap = () => serialize({}, 42)
 
     const err = t.throws(trap)
@@ -123,19 +105,13 @@ test(
 
 // Tests for isPlainObject
 test("isPlainObject: Should return true on object created from literal", t => {
-  t.plan(1)
-
   t.true(isPlainObject({}))
 })
 
 test("isPlainObject: Should return true on Object.create(null) objects", t => {
-  t.plan(1)
-
   t.true(isPlainObject(Object.create(null)))
 })
 
 test("isPlainObject: Should return false on non-object value", t => {
-  t.plan(1)
-
   t.false(isPlainObject(451))
 })
