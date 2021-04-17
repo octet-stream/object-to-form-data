@@ -1,9 +1,8 @@
 const test = require("ava")
 
-const FormData = require("formdata-node").default
+const {FormData} = require("formdata-node")
 
 const serialize = require("./serialize")
-const isPlainObject = require("./isPlainObject")
 
 test("Should always return a FormData instance", t => {
   const fd = serialize({})
@@ -67,10 +66,6 @@ test("Should allow booleans as the second argument", t => {
   t.false(serialize({falseValue: false}, true).has("falseValue"))
 })
 
-test("Should allow string as the second argument", t => {
-  t.true(serialize({name: "John Doe"}, "root").has("root[name]"))
-})
-
 test("Should throw a TypeError when no argument passed", t => {
   const err = t.throws(serialize)
 
@@ -78,17 +73,8 @@ test("Should throw a TypeError when no argument passed", t => {
   t.is(err.message, "Expected object or array as the first argument.")
 })
 
-test("Should throw a TypeError even if passed only the second argument", t => {
-  const trap = () => serialize(undefined, "root")
-
-  const err = t.throws(trap)
-
-  t.true(err instanceof TypeError)
-  t.is(err.message, "Expected object or array as the first argument.")
-})
-
 test(
-  "Should throw a TypeError when second argument is not kind of " +
+  "Throws TypeError when the second argument is not kind of " +
   "string, boolean or object type",
   t => {
     const trap = () => serialize({}, 42)
@@ -102,16 +88,3 @@ test(
     )
   }
 )
-
-// Tests for isPlainObject
-test("isPlainObject: Should return true on object created from literal", t => {
-  t.true(isPlainObject({}))
-})
-
-test("isPlainObject: Should return true on Object.create(null) objects", t => {
-  t.true(isPlainObject(Object.create(null)))
-})
-
-test("isPlainObject: Should return false on non-object value", t => {
-  t.false(isPlainObject(451))
-})

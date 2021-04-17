@@ -12,4 +12,5 @@ coverage
 .size-limit.js
 .lintstagedrc
 yarn.lock
-test.js
+
+*.test.js

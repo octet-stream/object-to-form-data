@@ -2,25 +2,38 @@ const FormData = require("./form-data")
 const isPlainObject = require("./isPlainObject")
 
 const {keys} = Object
+const {isArray} = Array
 
-const isArray = Array.isArray
-
+/**
+ * @param {unknown} value
+ *
+ * @return {value is Function}
+ */
 const isFunction = value => typeof value === "function"
 
+/**
+ * @param {unknown} value
+ *
+ * @return {value is boolean}
+ */
 const isBoolean = value => typeof value === "boolean"
 
-const isString = value => typeof value === "string"
+/**
+ * @typedef {Object} Options
+ *
+ * @prop {boolean} strict
+ */
 
+/** @type {Options} */
 const defaults = {
-  strict: false,
-  root: null
+  strict: false
 }
 
 /**
  * Transform given object/collection to form-data
  *
- * @param {Object.<string, any> | any[]} object – An object to transform
- * @param {string} [root = null] – Root key of a fieldname
+ * @param {Object.<string, any> | any[]} object An object to transform
+ * @param {Options | boolean} [options = null] Serialize options
  *
  * @return {FormData}
  */
@@ -31,8 +44,6 @@ function serialize(iterable, options = {}) {
 
   if (isBoolean(options)) {
     options = {strict: options}
-  } else if (isString(options) && options) {
-    options = {root: options}
   }
 
   if (!isPlainObject(options)) {
@@ -53,8 +64,8 @@ function serialize(iterable, options = {}) {
   /**
    * Set object fields to FormData instance
    *
-   * @param {string} [prefix = undefined] – parent field key
-   * @param {any} value – A value of the current field
+   * @param {string} [prefix = undefined] Parent field key
+   * @param {Object.<string, any> | any[]} value A value of the current field
    *
    * @api private
    */
