@@ -1,13 +1,17 @@
 const getPrototype = Object.getPrototypeOf
 const objectCtorString = Object.toString()
 
-// Based ob lodash/isPlainObject
-function isPlainObject(val) {
-  if (Object.prototype.toString.call(val).slice(8, -1) !== "Object") {
+/**
+ * @param {unknown} value
+ *
+ * @return {value is Object.<string, any>}
+ */
+function isPlainObject(value) {
+  if (Object.prototype.toString.call(value).slice(8, -1) !== "Object") {
     return false
   }
 
-  const proto = getPrototype(val)
+  const proto = getPrototype(value)
 
   if (proto == null) {
     return true

@@ -1,5 +1,5 @@
-const FormData = require("./form-data")
 const isPlainObject = require("./isPlainObject")
+const FormData = require("./form-data")
 
 const {keys} = Object
 const {isArray} = Array
@@ -69,7 +69,7 @@ function serialize(iterable, options = {}) {
    *
    * @api private
    */
-  function set(prefix, value) {
+  function set(value, prefix) {
     for (const key of keys(value)) {
       const name = prefix ? `${prefix}[${key}]` : key
       const field = value[key]
@@ -86,12 +86,17 @@ function serialize(iterable, options = {}) {
     }
   }
 
-  set(options.root, iterable)
+  set(iterable)
 
   return fd
 }
 
-const strict = (iterable, root) => serialize(iterable, {root, strict: true})
+/**
+ * @param {Object.<string, any> | any[]} iterable
+ *
+ * @return {FormData}
+ */
+const strict = iterable => serialize(iterable, {strict: true})
 
 module.exports = serialize
 module.exports.default = serialize

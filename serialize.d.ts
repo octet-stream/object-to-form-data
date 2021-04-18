@@ -1,10 +1,15 @@
-type Iterable = any[] | {[key: string]: any}
+type Input = any[] | {[key: string]: any}
 
-type Options = boolean | string | {
-  root?: string,
+interface Options {
   strict?: boolean
 }
 
-declare function serialize(iterable: Iterable, root?: Options | string | boolean) : FormData
+declare function serialize(input: Input): FormData
+declare function serialize(input: Input, strict?: boolean): FormData
+declare function serialize(input: Input, options?: Options | boolean) : FormData
+
+declare namespace serialize {
+  export function strict(input: Input): FormData
+}
 
 export default serialize
