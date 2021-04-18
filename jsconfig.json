@@ -1,8 +1,0 @@
-{
-  "include": ["*.js"],
-  "exclude": ["node_modules", "*.test.js"],
-  "compilerOptions": {
-    "noEmit": true,
-    "baseUrl": "."
-  }
-}
