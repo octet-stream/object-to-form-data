@@ -48,7 +48,7 @@ function serialize(iterable, options = {}) {
 
   if (!isPlainObject(options)) {
     throw new TypeError(
-      "The second argument can be an object, boolean or string value."
+      "Expected the second argument to be an object or boolean."
     )
   }
 

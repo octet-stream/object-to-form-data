@@ -59,10 +59,10 @@ test("Should allow booleans as the second argument", t => {
 })
 
 test("Should throw a TypeError when no argument passed", t => {
-  const err = t.throws(serialize)
-
-  t.true(err instanceof TypeError)
-  t.is(err.message, "Expected object or array as the first argument.")
+  t.throws(serialize, {
+    instanceOf: TypeError,
+    message: "Expected object or array as the first argument."
+  })
 })
 
 test(
@@ -71,12 +71,9 @@ test(
   t => {
     const trap = () => serialize({}, 42)
 
-    const err = t.throws(trap)
-
-    t.true(err instanceof TypeError)
-    t.is(
-      err.message,
-      "The second argument can be an object, boolean or string value."
-    )
+    t.throws(trap, {
+      instanceOf: TypeError,
+      message: "Expected the second argument to be an object or boolean."
+    })
   }
 )
