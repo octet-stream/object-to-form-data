@@ -1,6 +1,6 @@
 {
   "name": "@octetstream/object-to-form-data",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Serialize given object/collection to a FormData.",
   "repository": "octet-stream/object-to-form-data",
   "author": "Nick K. <nick.kruchinin@gmail.com>",
@@ -8,7 +8,7 @@
   "main": "serialize.js",
   "types": "serialize.d.ts",
   "engines": {
-    "node": ">= 10 < 11 || >= 12"
+    "node": ">= 12"
   },
   "browser": {
     "./form-data": "./form-data-browser"
