@@ -2,13 +2,13 @@ yarn-error.log
 npm-debug.log
 node_modules
 coverage
+.husky
 .nyc_output
 .DS_Store
 
 .editorconfig
 .travis.yml
 .eslintrc.json
-.huskyrc.json
 .size-limit.js
 .lintstagedrc
 package-lock.json
