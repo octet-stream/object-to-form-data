@@ -1,4 +1,4 @@
-type Input = any[] | {[key: string]: any}
+type Input = unknown[] | {[key: string]: unknown}
 
 interface Options {
   strict?: boolean
