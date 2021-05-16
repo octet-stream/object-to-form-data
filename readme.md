@@ -50,7 +50,7 @@ const onData = data => console.log(data)
 
 const onError = err => console.error(err)
 
-fetch("https://api.whatever.co/ping", options)
+fetch("https://httpbin.org/post", options)
   .then(onResponse).then(onData, onError)
 ```
 
