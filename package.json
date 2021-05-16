@@ -17,7 +17,7 @@
     "limit": "size-limit",
     "staged": "lint-staged",
     "lint": "eslint serialize.js test.js",
-    "test": "ava test.js",
+    "test": "ava",
     "coverage": "c8 npm test",
     "ci": "c8 npm test && c8 report --reporter=json"
   },
