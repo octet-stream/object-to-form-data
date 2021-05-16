@@ -3,10 +3,9 @@
 Transform an object/collection to FormData.
 Good to use with [then-busboy](https://github.com/octet-stream/then-busboy)
 
-[![dependencies Status](https://david-dm.org/octet-stream/object-to-form-data/status.svg)](https://david-dm.org/octet-stream/object-to-form-data)
-[![devDependencies Status](https://david-dm.org/octet-stream/object-to-form-data/dev-status.svg)](https://david-dm.org/octet-stream/object-to-form-data?type=dev)
-[![Build Status](https://travis-ci.org/octet-stream/object-to-form-data.svg?branch=master)](https://travis-ci.org/octet-stream/object-to-form-data)
 [![Code Coverage](https://codecov.io/github/octet-stream/object-to-form-data/coverage.svg?branch=master)](https://codecov.io/github/octet-stream/object-to-form-data?branch=master)
+[![CI](https://github.com/octet-stream/object-to-form-data/workflows/CI/badge.svg)](https://github.com/octet-stream/object-to-form-data/actions/workflows/ci.yml)
+[![ESLint](https://github.com/octet-stream/object-to-form-data/workflows/ESLint/badge.svg)](https://github.com/octet-stream/object-to-form-data/actions/workflows/eslint.yml)
 
 ## API
 
