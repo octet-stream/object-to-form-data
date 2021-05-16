@@ -37,21 +37,14 @@ const object = {
   }
 }
 
-// You will receive a FormData instance with all fields of given object
-const body = serialize(object)
-
 const options = {
-  method: "POST", body
+  method: "post",
+
+  // You will receive a FormData instance with all fields of given object
+  body: serialize(object)
 }
 
-const onResponse = res => res.json()
-
-const onData = data => console.log(data)
-
-const onError = err => console.error(err)
-
-fetch("https://httpbin.org/post", options)
-  .then(onResponse).then(onData, onError)
+const response = await fetch("https://httpbin.org/post", options)
 ```
 
 **Important!** If you're using this library in Node.js, you also need the [formdata-node](https://github.com/octet-stream/form-data) package to serialize your objects/collections. See documentation of this implementation to learn how to send queries with that implementation.
