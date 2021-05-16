@@ -3,6 +3,7 @@ npm-debug.log
 node_modules
 coverage
 .husky
+.github
 .nyc_output
 .DS_Store
 
@@ -11,6 +12,7 @@ coverage
 .size-limit.js
 .lintstagedrc
 .c8rc.json
+ava.config.cjs
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
