@@ -52,7 +52,7 @@ function serialize(iterable, options = {}) {
     )
   }
 
-  options = {...defaults, ...options}
+  const {strict} = {...defaults, ...options}
 
   // Choose the serialization method for browsers which
   // are support FormData API partially
@@ -64,20 +64,20 @@ function serialize(iterable, options = {}) {
   /**
    * Set object fields to FormData instance
    *
+   * @param {Object.<string, unknown> | unknown[]} value A value of the current field
    * @param {string} [prefix = undefined] Parent field key
-   * @param {Object.<string, any> | any[]} value A value of the current field
    *
    * @api private
    */
-  function set(value, prefix) {
+  function set(value, prefix = undefined) {
     for (const key of keys(value)) {
       const name = prefix ? `${prefix}[${key}]` : key
       const field = value[key]
 
       if (isArray(field) || isPlainObject(field)) {
-        set(name, field)
+        set(field, name)
       } else {
-        if (options.strict && (isBoolean(field) && field === false)) {
+        if (strict && (isBoolean(field) && field === false)) {
           continue
         }
 

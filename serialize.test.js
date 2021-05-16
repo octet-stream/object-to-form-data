@@ -19,10 +19,6 @@ test("Should correctly create a FormData from flat object", t => {
 
   const fd = serialize(person)
 
-  t.true(fd.has("name"))
-  t.true(fd.has("age"))
-  t.true(fd.has("career"))
-
   t.is(fd.get("name"), person.name)
   t.is(fd.get("age"), String(person.age))
   t.is(fd.get("career"), person.career)
@@ -38,10 +34,6 @@ test("Should correctly create a FormData for object with nested fields", t => {
   }
 
   const fd = serialize(object)
-
-  t.true(fd.has("birth[day]"))
-  t.true(fd.has("birth[month]"))
-  t.true(fd.has("birth[year]"))
 
   t.is(fd.get("birth[day]"), String(object.birth.day))
   t.is(fd.get("birth[month]"), object.birth.month)
