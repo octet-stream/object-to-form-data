@@ -1,4 +1,4 @@
-type Input = unknown[] | {[key: string]: unknown}
+type Input = unknown[] | Record<string, unknown>
 
 interface Options {
   strict?: boolean
