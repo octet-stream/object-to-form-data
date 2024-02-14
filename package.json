@@ -28,34 +28,34 @@
     "node": ">= 18"
   },
   "scripts": {
-    "build": "pnpm lint:types && tsup",
+    "build": "pnpm run lint:types && tsup",
     "eslint": "eslint src/**/*.ts",
     "lint:types": "tsc --noEmit",
     "test": "NODE_OPTIONS=\"--no-warnings --import tsx\" ava",
     "coverage": "c8 pnpm test",
     "coverage:report": "c8 pnpm test && c8 report --reporter=html",
     "ci": "c8 pnpm test && c8 report --reporter=json",
+    "release": "pnpm run build && pnpm exec changeset publish",
     "preinstall": "npx only-allow pnpm",
     "prepare": "npx is-in-ci || husky install"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.5.0",
-    "@changesets/cli": "^2.27.1",
+    "@changesets/changelog-github": "0.5.0",
+    "@changesets/cli": "2.27.1",
     "@octetstream/eslint-config": "8.0.2",
     "@size-limit/preset-small-lib": "11.0.2",
-    "@types/node": "^20.11.17",
-    "@types/sinon": "^17.0.3",
+    "@types/node": "20.11.17",
+    "@types/sinon": "17.0.3",
     "ava": "6.1.1",
     "c8": "9.1.0",
     "eslint": "8.56.0",
     "formdata-node": "6.0.3",
     "husky": "9.0.11",
     "lint-staged": "15.2.2",
-    "pinst": "^2.1.6",
-    "sinon": "^17.0.1",
+    "sinon": "17.0.1",
     "size-limit": "11.0.2",
-    "tsup": "^8.0.2",
-    "tsx": "^4.7.1",
+    "tsup": "8.0.2",
+    "tsx": "4.7.1",
     "typescript": "5.3.3"
   }
 }
