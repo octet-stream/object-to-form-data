@@ -1,12 +1,31 @@
+import {pathToString, Path, type PathNotations} from "./utils/pathToString.js"
 import {createIterator} from "./utils/createIterator.js"
 import {isPlainObject} from "./utils/isPlainObject.js"
-import {pathToString} from "./utils/pathToString.js"
 import {isFunction} from "./utils/isFunction.js"
 import type {Input} from "./Input.js"
+
+/**
+ * Value normalizer.
+ *
+ * This function will be called on each *scalar* value, before it's added to FormData instanceю
+ *
+ * @param value - current entry value
+ * @param name - name of the entry
+ * @param path - entry's path within original object
+ */
+export type NormalizeValue = (
+  value: unknown,
+  name: string,
+  path: Path
+) => string | Blob
+
+const noopNormalizeValue: NormalizeValue = value => value as string | Blob
 
 export interface ObjectToFormDataOptions {
   /**
    * Indicates whether or not to omit every `false` values. Applied enabled. Does not affect boolean array values
+   *
+   * @default false
    *
    * @example
    *
@@ -30,6 +49,8 @@ export interface ObjectToFormDataOptions {
   /**
    * Custom spec-compliant [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) implementation
    *
+   * @default globalThis.FormData
+   *
    * @example
    *
    * ```js
@@ -48,6 +69,20 @@ export interface ObjectToFormDataOptions {
    * ```
    */
   FormData?: typeof FormData
+
+  /**
+   * Type of the path notation. Can be either `"dot"` or `"bracket"`
+   *
+   * @default "bracket"
+   */
+  notation?: PathNotations
+
+  /**
+   * Value normalizer.
+   *
+   * This function will be called on each *scalar* value, before it's added to FormData instanceю
+   */
+  normalizeValue?: NormalizeValue
 }
 
 export interface ObjectToFormData {
@@ -83,11 +118,6 @@ export interface ObjectToFormData {
   strict(input: Input): FormData
 }
 
-const defaults: Required<ObjectToFormDataOptions> = {
-  strict: false,
-  FormData // FIXME: Figure out why the types are incompatible
-}
-
 export const objectToFormData: ObjectToFormData = (
   input: Input,
   optionsOrStrict?: ObjectToFormDataOptions | boolean
@@ -107,11 +137,13 @@ export const objectToFormData: ObjectToFormData = (
   }
 
   const {
-    strict,
-    FormData: CustomFormData
-  }: Required<ObjectToFormDataOptions> = typeof optionsOrStrict === "boolean"
-    ? {...defaults, strict: optionsOrStrict}
-    : {...defaults, ...optionsOrStrict}
+    notation,
+    strict = false,
+    FormData: CustomFormData = FormData,
+    normalizeValue = noopNormalizeValue
+  }: ObjectToFormDataOptions = typeof optionsOrStrict === "boolean"
+    ? {strict: optionsOrStrict}
+    : {...optionsOrStrict}
 
   const form = new CustomFormData()
 
@@ -122,8 +154,11 @@ export const objectToFormData: ObjectToFormData = (
     ? "set"
     : "append"
 
-  for (const [path, value] of createIterator(input, strict)) {
-    form[method](pathToString(path), value as Blob | string) // Cast value type because FormData will normalize it anyway
+  for (const [path, raw] of createIterator(input, strict)) {
+    const name = pathToString(path, notation)
+    const value = normalizeValue(raw, name, path)
+
+    form[method](name, value) // Cast value type because FormData will normalize it anyway
   }
 
   return form
