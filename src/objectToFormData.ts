@@ -89,7 +89,7 @@ export interface ObjectToFormData {
   /**
    * Transform given object, array, or collection to FormData object
    *
-   * @param input An object to transform
+   * @param input - An object to transform
    */
   (input: Input): FormData
 
@@ -104,7 +104,8 @@ export interface ObjectToFormData {
   /**
    * Transform given object, array, or collection to FormData object
    *
-   * @param input An object to transform
+   * @param input - An object to transform
+   * @param oprions - Additional serialization options
    */
   (input: Input, options?: ObjectToFormDataOptions): FormData
 

@@ -7,21 +7,23 @@ Good to use with [then-busboy](https://github.com/octet-stream/then-busboy)
 [![CI](https://github.com/octet-stream/object-to-form-data/workflows/CI/badge.svg)](https://github.com/octet-stream/object-to-form-data/actions/workflows/ci.yml)
 [![ESLint](https://github.com/octet-stream/object-to-form-data/workflows/ESLint/badge.svg)](https://github.com/octet-stream/object-to-form-data/actions/workflows/eslint.yml)
 
-## API
+## Installation
 
-`serialize(object[, options]) -> {FormData}`
+pnpm:
 
-  * **{object}** object – Object to transform
-  * **{object | boolean}** options – Serialization options.
-    This argument might be an object with "root" and "strict" parameters.
-    Or you can pass one of them as the second argument:
-      + **{boolean}** [strict = false] – if set to `true`, all `false` boolean
-        values will be omitted.
+```sh
+pnpm add @octetstream/object-to-form-data
+```
+
+npm:
+```sh
+npm i @octetstream/object-to-form-data
+```
 
 ## Usage
 
 ```js
-import serialize from "@octetstream/object-to-form-data"
+import {objectToFormData} from "@octetstream/object-to-form-data"
 
 const object = {
   message: {
@@ -36,14 +38,26 @@ const object = {
   }
 }
 
+// You will receive a FormData instance with all fields of given object
+const form = objectToFormData(object)
+
 const options = {
   method: "post",
-
-  // You will receive a FormData instance with all fields of given object
-  body: serialize(object)
+  body: form
 }
 
 const response = await fetch("https://httpbin.org/post", options)
 ```
 
-**Important!** If you're using this library in Node.js, you also need the [formdata-node](https://github.com/octet-stream/form-data) package to serialize your objects/collections. See documentation of this implementation to learn how to send queries with that implementation.
+## API
+
+`objectToFormData(input[, options]): FormData`
+
+Indicates whether or not to omit every `false` values. Applied enabled. Does not affect boolean array values
+
+This function takes following arguments:
+
+| Name    | Type                                          | Required  | Default     | Description                      |
+|---------|:---------------------------------------------:|:---------:|:-----------:|----------------------------------|
+| input   | `unknown[] | Record<sting | number, unknown>` | true      | –           | An object to transform           |
+| options | `ObjectToFormDataOptions`                     | false     | `undefined` | Additional serialization options |
