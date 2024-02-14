@@ -39,6 +39,8 @@
     "prepare": "npx is-in-ci || husky install"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.1",
     "@octetstream/eslint-config": "8.0.2",
     "@size-limit/preset-small-lib": "11.0.2",
     "@types/node": "^20.11.17",
