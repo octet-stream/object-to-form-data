@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "@octetstream/object-to-form-data",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Serialize given object/collection to a FormData.",
   "repository": {
     "type": "git",
