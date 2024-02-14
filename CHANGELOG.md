@@ -1,5 +1,11 @@
 # @octetstream/object-to-form-data
 
+## 3.0.1
+
+### Patch Changes
+
+- [`9f465da`](https://github.com/octet-stream/object-to-form-data/commit/9f465daaa4cf4048ec46e48a04191c2e1b837261) Thanks [@octet-stream](https://github.com/octet-stream)! - Add missing typings
+
 ## 3.0.0
 
 ### Major Changes
