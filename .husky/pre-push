@@ -1,2 +1,2 @@
 pnpm coverage
-pnpm limit
+pnpm size-limit

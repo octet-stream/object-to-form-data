@@ -29,15 +29,13 @@
   },
   "scripts": {
     "build": "tsup",
-    "limit": "size-limit",
-    "staged": "lint-staged",
     "eslint": "eslint src/**/*.ts",
     "test": "NODE_OPTIONS=\"--no-warnings --import tsx\" ava",
     "coverage": "c8 pnpm test",
     "coverage:report": "c8 pnpm test && c8 report --reporter=html",
     "ci": "c8 pnpm test && c8 report --reporter=json",
     "preinstall": "npx only-allow pnpm",
-    "prepare": "husky"
+    "prepare": "npx is-in-ci || husky install"
   },
   "devDependencies": {
     "@octetstream/eslint-config": "8.0.2",
