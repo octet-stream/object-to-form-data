@@ -63,6 +63,8 @@ jobs:
       - name: Upload codecov report
         uses: codecov/codecov-action@v3
         if: matrix.node == '20.x' && matrix.os == 'ubuntu-latest'
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
           file: ./coverage/coverage-final.json
           flags: unittests
