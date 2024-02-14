@@ -25,7 +25,7 @@
     "lib"
   ],
   "engines": {
-    "node": ">= 12"
+    "node": ">= 18"
   },
   "scripts": {
     "build": "pnpm lint:types && tsup",
