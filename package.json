@@ -30,6 +30,7 @@
   "scripts": {
     "build": "tsup",
     "eslint": "eslint src/**/*.ts",
+    "lint:types": "tsc --noEmit",
     "test": "NODE_OPTIONS=\"--no-warnings --import tsx\" ava",
     "coverage": "c8 pnpm test",
     "coverage:report": "c8 pnpm test && c8 report --reporter=html",
