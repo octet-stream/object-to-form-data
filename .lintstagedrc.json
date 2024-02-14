@@ -1,0 +1,4 @@
+{
+  "*.ts": "pnpm eslint",
+  "*.js": "eslint"
+}

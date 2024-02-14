@@ -1,6 +1,6 @@
-const test = require("ava")
+import test from "ava"
 
-const isPlainObject = require("./isPlainObject")
+import {isPlainObject} from "./isPlainObject.js"
 
 test("isPlainObject: Should return true on object created from literal", t => {
   t.true(isPlainObject({}))

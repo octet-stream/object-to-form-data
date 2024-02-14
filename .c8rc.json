@@ -1,8 +1,8 @@
 {
   "include": [
-    "**.js"
+    "src/**/*.ts"
   ],
   "exclude": [
-    "*.test.js"
+    "src/**/*.test.ts"
   ]
 }

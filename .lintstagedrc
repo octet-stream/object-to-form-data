@@ -1,8 +1,0 @@
-{
-  ".size-limit.js": "eslint",
-  "form-data.js": "eslint",
-  "form-data-browser.js": "eslint",
-  "isPlainObject": "eslint",
-  "serialize.js": "eslint",
-  "test.js": "eslint"
-}

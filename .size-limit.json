@@ -1,0 +1,7 @@
+[
+  {
+    "path": "src/index.ts",
+    "import": "{objectToFormData}",
+    "limit": "600 B"
+  }
+]

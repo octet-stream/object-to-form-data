@@ -2,28 +2,58 @@ name: ESLint
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
-      - "**.js"
+      - "**.ts"
+      - "ava.config.js"
       - "package.json"
       - "pnpm-lock.yaml"
+      - ".eslintrc.json"
+      - ".eslintignore"
       - ".github/workflows/eslint.yml"
   pull_request:
-    branches: [master]
+    branches: [main]
     paths:
-      - "**.js"
+      - "**.ts"
+      - "ava.config.js"
       - "package.json"
       - "pnpm-lock.yaml"
+      - ".eslintrc.json"
+      - ".eslintignore"
       - ".github/workflows/eslint.yml"
 
 jobs:
   eslint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: 14
-      - run: npm install
-      - run: npm run eslint
+          node-version: 20
+
+      - name: Setup pnpm
+        id: pnpm-install
+        uses: pnpm/action-setup@v2
+        with:
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+
+      - run: pnpm run eslint

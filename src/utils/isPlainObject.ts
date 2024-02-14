@@ -1,12 +1,9 @@
 const getPrototype = Object.getPrototypeOf
 const objectCtorString = Object.toString()
 
-/**
- * @param {unknown} value
- *
- * @return {value is Object.<string, any>}
- */
-function isPlainObject(value) {
+export function isPlainObject(
+  value: unknown
+): value is Record<PropertyKey, unknown> {
   if (Object.prototype.toString.call(value).slice(8, -1) !== "Object") {
     return false
   }
@@ -19,5 +16,3 @@ function isPlainObject(value) {
 
   return proto.constructor && proto.constructor.toString() === objectCtorString
 }
-
-module.exports = isPlainObject

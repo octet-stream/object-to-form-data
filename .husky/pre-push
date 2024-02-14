@@ -1,1 +1,2 @@
-npm run limit && npm run coverage
+pnpm coverage
+pnpm limit

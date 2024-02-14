@@ -1,0 +1,23 @@
+{
+  "include": ["**/*.ts"],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "outDir": "lib",
+    "target": "es2021",
+    "module": "node16",
+    "moduleDetection": "force",
+    "moduleResolution": "node16",
+    "noImplicitAny": true,
+    "baseUrl": "src",
+    "checkJs": false,
+    "allowJs": false,
+    "skipLibCheck": false,
+    "strict": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true
+  }
+}

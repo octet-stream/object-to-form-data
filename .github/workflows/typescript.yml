@@ -1,42 +1,35 @@
-name: CI
+name: TypeScript Types
 
 on:
   push:
     branches: [main]
     paths:
       - "**.ts"
-      - "tsconfig.json"
-      - "ava.config.js"
       - "package.json"
       - "pnpm-lock.yaml"
-      - ".github/workflows/ci.yml"
+      - "tsconfig.json"
+      - ".github/workflows/typescript.yml"
   pull_request:
     branches: [main]
     paths:
       - "**.ts"
-      - "tsconfig.json"
-      - "ava.config.js"
       - "package.json"
       - "pnpm-lock.yaml"
-      - ".github/workflows/ci.yml"
+      - "tsconfig.json"
+      - ".github/workflows/typescript.yml"
 
 jobs:
-  ci:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macOS-latest, windows-latest]
-        node: [18.x, 20.x, 21.x]
-    runs-on: ${{ matrix.os }}
+  typescript:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 20
 
       - name: Setup pnpm
-        id: pnpm-install
         uses: pnpm/action-setup@v2
         with:
           run_install: false
@@ -58,12 +51,5 @@ jobs:
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
 
-      - run: pnpm run ci
-
-      - name: Upload codecov report
-        uses: codecov/codecov-action@v3
-        if: matrix.node == '20.x' && matrix.os == 'ubuntu-latest'
-        with:
-          file: ./coverage/coverage-final.json
-          flags: unittests
-          fail_ci_if_error: false
+      - name: Run TypeScript
+        run: pnpm run lint:types
