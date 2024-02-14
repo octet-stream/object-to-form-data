@@ -22,7 +22,7 @@ function* createRecursiveIterator(
   input: Input,
   path: Path,
   strict: boolean
-): Generator<[Path, unknown], undefined> {
+): Generator<[Path, unknown], void, undefined> {
   const entries = createEntriesIterator(input)
 
   for (const [key, value] of entries) {
