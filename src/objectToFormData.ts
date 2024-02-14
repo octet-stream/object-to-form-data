@@ -2,6 +2,7 @@ import {pathToString, Path, type PathNotations} from "./utils/pathToString.js"
 import {createIterator} from "./utils/createIterator.js"
 import {isPlainObject} from "./utils/isPlainObject.js"
 import {isFunction} from "./utils/isFunction.js"
+import {isBoolean} from "./utils/isBoolean.js"
 import type {Input} from "./Input.js"
 
 /**
@@ -129,7 +130,7 @@ export const objectToFormData: ObjectToFormData = (
 
   if (
     optionsOrStrict && !(
-      isPlainObject(optionsOrStrict) || typeof optionsOrStrict === "boolean"
+      isPlainObject(optionsOrStrict) || isBoolean(optionsOrStrict)
     )
   ) {
     throw new TypeError(
@@ -142,7 +143,7 @@ export const objectToFormData: ObjectToFormData = (
     strict = false,
     FormData: CustomFormData = FormData,
     normalizeValue = noopNormalizeValue
-  }: ObjectToFormDataOptions = typeof optionsOrStrict === "boolean"
+  }: ObjectToFormDataOptions = isBoolean(optionsOrStrict)
     ? {strict: optionsOrStrict}
     : {...optionsOrStrict}
 
