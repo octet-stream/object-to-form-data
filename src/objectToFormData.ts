@@ -19,7 +19,7 @@ export type NormalizeValue = (
   path: Path
 ) => string | Blob
 
-const noopNormalizeValue: NormalizeValue = value => value as string | Blob
+const noopNormalizeValue: NormalizeValue = value => value as string | Blob // Cast value type because FormData will normalize it anyway
 
 export interface ObjectToFormDataOptions {
   /**
@@ -159,7 +159,7 @@ export const objectToFormData: ObjectToFormData = (
     const name = pathToString(path, notation)
     const value = normalizeValue(raw, name, path)
 
-    form[method](name, value) // Cast value type because FormData will normalize it anyway
+    form[method](name, value)
   }
 
   return form
