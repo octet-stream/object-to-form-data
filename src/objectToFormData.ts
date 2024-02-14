@@ -9,9 +9,9 @@ import type {Input} from "./Input.js"
  *
  * This function will be called on each *scalar* value, before it's added to FormData instanceю
  *
- * @param value - current entry value
- * @param name - name of the entry
- * @param path - entry's path within original object
+ * @param value - Current entry value
+ * @param name - The name of the entry
+ * @param path - Entry's path within original object
  */
 export type NormalizeValue = (
   value: unknown,
@@ -80,7 +80,7 @@ export interface ObjectToFormDataOptions {
   /**
    * Value normalizer.
    *
-   * This function will be called on each *scalar* value, before it's added to FormData instanceю
+   * This function will be called on each *scalar* value, before it's added to FormData instance.
    */
   normalizeValue?: NormalizeValue
 }

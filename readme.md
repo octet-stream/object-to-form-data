@@ -51,7 +51,7 @@ const response = await fetch("https://httpbin.org/post", options)
 
 ## API
 
-`objectToFormData(input[, options]): FormData`
+### `objectToFormData(input[, options]): FormData`
 
 Indicates whether or not to omit every `false` values. Applied enabled. Does not affect boolean array values
 
@@ -61,3 +61,28 @@ This function takes following arguments:
 |---------|:---------------------------------------------:|:---------:|:-----------:|----------------------------------|
 | input   | `unknown[] | Record<sting | number, unknown>` | true      | –           | An object to transform           |
 | options | `ObjectToFormDataOptions`                     | false     | `undefined` | Additional serialization options |
+
+### `interface ObjectToFormDataOptions`
+
+Serialization options
+
+| Name           | Type                 | Required | Default               | Description                               |
+|----------------|:--------------------:|:--------:|:---------------------:|-------------------------------------------|
+| strict         | `boolean`            | false    | `false`               | Indicates whether or not to omit every `false` values. Applied enabled. Does not affect boolean array values  |
+| FormData       | `FormData`           | false    | `globalThis.FormData` | Custom spec-compliant [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) implementation  |
+| notation       | `"dot" | "bracket"`  | false    | `"bracket"`           | Type of the path notation. Can be either `"dot"` or `"bracket"`                                               |
+| normalizeValue | `NormalizeValue`     | false    | undefined             | Value normalizer. This function will be called on each *scalar* value, before it's added to FormData instance |
+
+### `NormalizeValue`
+
+Value normalizer.
+
+This function will be called on each *scalar* value, before it's added to FormData instance. It **must** return either `Blob` or `string`
+
+This function will be called with the following arguments:
+
+| Name    | Type                     | Description                         |
+|---------|:------------------------:|-------------------------------------|
+| value   | `unknown`                | Current entry value                 |
+| name    | `string`                 | The name of the entry               |
+| path    | `Array<string | number>` | Entry's path within original object |
