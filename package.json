@@ -28,7 +28,7 @@
     "node": ">= 12"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "pnpm lint:types && tsup",
     "eslint": "eslint src/**/*.ts",
     "lint:types": "tsc --noEmit",
     "test": "NODE_OPTIONS=\"--no-warnings --import tsx\" ava",
