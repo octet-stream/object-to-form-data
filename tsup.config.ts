@@ -8,5 +8,6 @@ export default defineConfig({
   },
   outDir: "lib",
   format: ["esm", "cjs"],
+  dts: true,
   splitting: false
 })

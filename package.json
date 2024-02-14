@@ -28,7 +28,7 @@
     "node": ">= 18"
   },
   "scripts": {
-    "build": "pnpm run lint:types && tsup",
+    "build": "pnpm run lint:types && pnpm del-cli lib && tsup",
     "eslint": "eslint src/**/*.ts",
     "lint:types": "tsc --noEmit",
     "test": "NODE_OPTIONS=\"--no-warnings --import tsx\" ava",
@@ -48,6 +48,7 @@
     "@types/sinon": "17.0.3",
     "ava": "6.1.1",
     "c8": "9.1.0",
+    "del-cli": "^5.1.0",
     "eslint": "8.56.0",
     "formdata-node": "6.0.3",
     "husky": "9.0.11",
