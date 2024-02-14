@@ -70,7 +70,7 @@ Serialization options
 |----------------|:--------------------:|:--------:|:---------------------:|-------------------------------------------|
 | strict         | `boolean`            | false    | `false`               | Indicates whether or not to omit every `false` values. Applied enabled. Does not affect boolean array values  |
 | FormData       | `FormData`           | false    | `globalThis.FormData` | Custom spec-compliant [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) implementation  |
-| notation       | `"dot" | "bracket"`  | false    | `"bracket"`           | Type of the path notation. Can be either `"dot"` or `"bracket"`                                               |
+| notation       | `"dot" \| "bracket"`  | false    | `"bracket"`           | Type of the path notation. Can be either `"dot"` or `"bracket"`                                               |
 | normalizeValue | `NormalizeValue`     | false    | undefined             | Value normalizer. This function will be called on each *scalar* value, before it's added to FormData instance |
 
 ### `NormalizeValue`
@@ -85,4 +85,4 @@ This function will be called with the following arguments:
 |---------|:------------------------:|-------------------------------------|
 | value   | `unknown`                | Current entry value                 |
 | name    | `string`                 | The name of the entry               |
-| path    | `Array<string | number>` | Entry's path within original object |
+| path    | `Array<string \| number>` | Entry's path within original object |
