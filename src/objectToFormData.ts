@@ -169,3 +169,10 @@ export const objectToFormData: ObjectToFormData = (
 objectToFormData.strict = (input: Input) => objectToFormData(input, {
   strict: true
 })
+
+/**
+ * @deprecated Use objectToFormData instead
+ */
+export const serialize = objectToFormData
+
+export default serialize
