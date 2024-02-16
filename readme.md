@@ -19,6 +19,10 @@ npm:
 npm i @octetstream/object-to-form-data
 ```
 
+## CJS/ESM support
+
+This module supports both CommonJS and ES Modules.
+
 ## Usage
 
 1. To use this package, just import `objectToFormData` and pass `input` data as the first argument:
@@ -112,7 +116,7 @@ const developers = [
   }
 ]
 
-const form = objectToFormData(person)
+const form = objectToFormData(developers)
 ```
 
 This results in following `form` structure:
