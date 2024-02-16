@@ -6,6 +6,11 @@ import {isBoolean} from "./utils/isBoolean.js"
 import type {Input} from "./Input.js"
 
 /**
+ * @internal
+ */
+type Methods = "set" | "append"
+
+/**
  * Value normalizer.
  *
  * This function will be called on each *scalar* value, before it's added to FormData instanceю
@@ -22,6 +27,9 @@ export type NormalizeValue = (
 
 const noopNormalizeValue: NormalizeValue = value => value as string | Blob // Cast value type because FormData will normalize it anyway
 
+/**
+ * Serialization options
+ */
 export interface ObjectToFormDataOptions {
   /**
    * Indicates whether or not to omit every `false` values. Applied enabled. Does not affect boolean array values
@@ -147,14 +155,14 @@ export const objectToFormData: ObjectToFormData = (
     ? {strict: optionsOrStrict}
     : {...optionsOrStrict}
 
-  const form = new CustomFormData()
-
   // Choose the serialization method for browsers which
   // are support FormData API partially
   // See: https://caniuse.com/#search=formdata
-  const method: "set" | "append" = isFunction(CustomFormData.prototype.set)
+  const method: Methods = isFunction(CustomFormData.prototype.set)
     ? "set"
     : "append"
+
+  const form = new CustomFormData()
 
   for (const [path, raw] of createIterator(input, strict)) {
     const name = pathToString(path, notation)
