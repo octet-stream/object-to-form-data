@@ -1,9 +1,17 @@
 {
   "type": "module",
   "name": "@octetstream/object-to-form-data",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Serialize objects, arrays and collections into FormData.",
-  "keywords": ["form-data", "serialization", "transform", "object-to-form-data", "serialize", "bracket-notation", "dot-notation"],
+  "keywords": [
+    "form-data",
+    "serialization",
+    "transform",
+    "object-to-form-data",
+    "serialize",
+    "bracket-notation",
+    "dot-notation"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/octet-stream/object-to-form-data.git"
