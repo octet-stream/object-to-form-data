@@ -1,5 +1,15 @@
 # @octetstream/object-to-form-data
 
+## 3.0.2
+
+### Patch Changes
+
+- [`1f337d2`](https://github.com/octet-stream/object-to-form-data/commit/1f337d2360cbfa2b33fa897b533f767ee669f47a) Thanks [@octet-stream](https://github.com/octet-stream)! - docs: Add more examples
+
+- [`1f337d2`](https://github.com/octet-stream/object-to-form-data/commit/1f337d2360cbfa2b33fa897b533f767ee669f47a) Thanks [@octet-stream](https://github.com/octet-stream)! - docs: Add Related links section
+
+- [`1f337d2`](https://github.com/octet-stream/object-to-form-data/commit/1f337d2360cbfa2b33fa897b533f767ee669f47a) Thanks [@octet-stream](https://github.com/octet-stream)! - docs: Add note about ESM/CJS support
+
 ## 3.0.1
 
 ### Patch Changes
