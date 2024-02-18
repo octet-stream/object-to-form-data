@@ -15,7 +15,7 @@ interface TestParams {
 const withSetializerTest = test.macro((t, params: TestParams) => {
   const {input, expected, strict, serializer = objectToFormData} = params
 
-  const actual = Array.from(serializer(input, strict))
+  const actual = Array.from(serializer(input, {strict}))
 
   t.deepEqual(actual, expected)
 })

@@ -11,19 +11,20 @@ import type {Input} from "./Input.js"
 type Methods = "set" | "append"
 
 /**
- * Value normalizer.
- *
- * This function will be called on each *scalar* value, before it's added to FormData instanceю
- *
- * @param value - Current entry value
- * @param name - The name of the entry
- * @param path - Entry's path within original object
+ * Value normalizer callback
  */
-export type NormalizeValue = (
-  value: unknown,
-  name: string,
-  path: Path
-) => string | Blob
+export interface NormalizeValue {
+  /**
+   * Value normalizer callback.
+   *
+   * This function will be called on each *scalar* value, before it's added to FormData instanceю
+   *
+   * @param value - Current entry value
+   * @param name - The name of the entry
+   * @param path - Entry's path within original object
+   */
+  (value: unknown, name: string, path: Path): string | Blob
+}
 
 const noopNormalizeValue: NormalizeValue = value => value as string | Blob // Cast value type because FormData will normalize it anyway
 
