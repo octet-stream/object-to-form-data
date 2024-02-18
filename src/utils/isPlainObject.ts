@@ -1,6 +1,13 @@
 const getPrototype = Object.getPrototypeOf
 const objectCtorString = Object.toString()
 
+/**
+ * Check if the `value` is a Plain JavaScript Object
+ *
+ * @param value - A value to check
+ *
+ * @internal
+ */
 export function isPlainObject(
   value: unknown
 ): value is Record<PropertyKey, unknown> {
