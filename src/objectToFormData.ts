@@ -80,7 +80,7 @@ export interface ObjectToFormDataOptions {
   FormData?: typeof FormData
 
   /**
-   * Type of the path notation. Can be either `"dot"` or `"bracket"`
+   * Type of the nested fields notation. Can be either `"dot"` or `"bracket"`
    *
    * @default "bracket"
    */

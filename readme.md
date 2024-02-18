@@ -180,7 +180,7 @@ Serialization options
 |----------------|:----------------------------------------:|:--------:|:---------------------:|---------------------------------------------------------------------------------------------------------------|
 | strict         | `boolean`                                | false    | `false`               | Indicates whether or not to omit every `false` values. Applied enabled. Does not affect boolean array values  |
 | FormData       | `FormData`                               | false    | `globalThis.FormData` | Custom spec-compliant [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) implementation  |
-| notation       | `"dot" \| "bracket"`                     | false    | `"bracket"`           | Type of the path notation. Can be either `"dot"` or `"bracket"`                                               |
+| notation       | `"dot" \| "bracket"`                     | false    | `"bracket"`           | Type of the nested fields notation. Can be either `"dot"` or `"bracket"`                                      |
 | normalizeValue | [`NormalizeValue`](#type-normalizevalue) | false    | `undefined`           | Value normalizer. This function will be called on each *scalar* value, before it's added to FormData instance |
 
 ### `type NormalizeValue`
