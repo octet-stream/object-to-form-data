@@ -95,16 +95,19 @@ export interface ObjectToFormDataOptions {
   normalizeValue?: NormalizeValue
 }
 
+/**
+ * Transforms given object, array, or collection to FormData object
+ */
 export interface ObjectToFormData {
   /**
-   * Transform given object, array, or collection to FormData object
+   * Transforms given object, array, or collection to FormData object
    *
    * @param input - An object to transform
    */
   (input: Input): FormData
 
   /**
-   * Transform given object, array, or collection to FormData object
+   * Transforms given object, array, or collection to FormData object
    *
    * @param input - An object to transform
    * @param strict - Indicates whether or not to omit every `false` values. Applied enabled. Does not affect boolean array values.
@@ -112,7 +115,7 @@ export interface ObjectToFormData {
   (input: Input, strict?: boolean): FormData
 
   /**
-   * Transform given object, array, or collection to FormData object
+   * Transforms given object, array, or collection to FormData object
    *
    * @param input - An object to transform
    * @param oprions - Additional serialization options
@@ -120,7 +123,7 @@ export interface ObjectToFormData {
   (input: Input, options?: ObjectToFormDataOptions): FormData
 
   /**
-   * Transform given object, array, or collection to FormData object.
+   * Transforms given object, array, or collection to FormData object.
    *
    * **This method always enables `strict` option.**
    *
@@ -129,6 +132,9 @@ export interface ObjectToFormData {
   strict(input: Input): FormData
 }
 
+/**
+ * Transforms given object, array, or collection to FormData object
+ */
 export const objectToFormData: ObjectToFormData = (
   input: Input,
   optionsOrStrict?: ObjectToFormDataOptions | boolean
