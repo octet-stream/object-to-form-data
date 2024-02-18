@@ -12,6 +12,8 @@ type Methods = "set" | "append"
 
 /**
  * Value normalizer callback
+ *
+ * @public
  */
 export interface NormalizeValue {
   /**
@@ -26,10 +28,15 @@ export interface NormalizeValue {
   (value: unknown, name: string, path: Path): string | Blob
 }
 
+/**
+ * @internal
+ */
 const noopNormalizeValue: NormalizeValue = value => value as string | Blob // Cast value type because FormData will normalize it anyway
 
 /**
  * Serialization options
+ *
+ * @public
  */
 export interface ObjectToFormDataOptions {
   /**
@@ -97,6 +104,8 @@ export interface ObjectToFormDataOptions {
 
 /**
  * Transforms given object, array, or collection to FormData object
+ *
+ * @public
  */
 export interface ObjectToFormData {
   /**
@@ -134,6 +143,8 @@ export interface ObjectToFormData {
 
 /**
  * Transforms given object, array, or collection to FormData object
+ *
+ * @public
  */
 export const objectToFormData: ObjectToFormData = (
   input: Input,
