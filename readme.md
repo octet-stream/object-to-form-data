@@ -62,8 +62,8 @@ The `user` object from this example will be serailized into FormData with follow
 name = "The Octocat"
 login = "octocat"
 url = "https://github.com/octocat"
-repositories[nodes][0][name] = Hello-World
-repositories[nodes][0][description] = My first repository on GitHub!
+repositories[nodes][0][name] = "Hello-World"
+repositories[nodes][0][description] = "My first repository on GitHub!"
 repositories[nodes][0][url] = "https://github.com/octocat/Hello-World"
 ```
 
