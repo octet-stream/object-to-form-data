@@ -1,5 +1,6 @@
-import {pathToString, Path, type PathNotations} from "./utils/pathToString.js"
+import type {Path, PathNotations} from "./utils/pathToString.js"
 import {createIterator} from "./utils/createIterator.js"
+import {pathToString} from "./utils/pathToString.js"
 import {isPlainObject} from "./utils/isPlainObject.js"
 import {isFunction} from "./utils/isFunction.js"
 import {isBoolean} from "./utils/isBoolean.js"
