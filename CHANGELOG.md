@@ -1,5 +1,11 @@
 # @octetstream/object-to-form-data
 
+## 3.0.4
+
+### Patch Changes
+
+- [`c4b749b`](https://github.com/octet-stream/object-to-form-data/commit/c4b749bc25bc2182f8d47c97f9ae255ab8df0539) Thanks [@octet-stream](https://github.com/octet-stream)! - Fix documentation for NormalizeValue
+
 ## 3.0.3
 
 ### Patch Changes
