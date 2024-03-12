@@ -1,5 +1,11 @@
 # @octetstream/object-to-form-data
 
+## 3.0.3
+
+### Patch Changes
+
+- [`c150e64`](https://github.com/octet-stream/object-to-form-data/commit/c150e64645e8e224fe94f8084f1862755e32b256) Thanks [@octet-stream](https://github.com/octet-stream)! - Add example usage with File and Blob
+
 ## 3.0.2
 
 ### Patch Changes
