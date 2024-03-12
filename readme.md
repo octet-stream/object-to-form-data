@@ -211,11 +211,11 @@ Serialization options
 | notation       | `"dot" \| "bracket"`                     | false    | `"bracket"`           | Type of the nested fields notation. Can be either `"dot"` or `"bracket"`                                      |
 | normalizeValue | [`NormalizeValue`](#type-normalizevalue) | false    | `undefined`           | Value normalizer. This function will be called on each *scalar* value, before it's added to FormData instance |
 
-### `type NormalizeValue`
+### `interface NormalizeValue`
 
 Value normalizer.
 
-Will be called on each *scalar* value, before it's added to FormData instance. It **must** return either `Blob` or `string`
+A function to be called on each *scalar* value, before it's added to FormData instance. It **must** return either `Blob` or `string`
 
 This function will be called with the following arguments:
 
