@@ -1,7 +1,11 @@
 import test from "ava"
 
-import {FormData as FormDataNode} from "formdata-node"
-import {stub} from "sinon"
+import {
+  FormData as FormDataNode,
+  File as FormDataFile,
+  Blob as FormDataBlob
+} from "formdata-node"
+import {createSandbox} from "sinon"
 
 import {objectToFormData} from "./objectToFormData.js"
 
@@ -24,6 +28,14 @@ test.before(() => {
   if (typeof globalThis.FormData === "undefined") {
     globalThis.FormData = FormDataNode
   }
+
+  if (typeof globalThis.File === "undefined") {
+    globalThis.File = FormDataFile
+  }
+
+  if (typeof globalThis.Blob === "undefined") {
+    globalThis.Blob = FormDataBlob
+  }
 })
 
 test("Returns FormData", t => {
@@ -41,8 +53,11 @@ test("Accepts custom FormData", t => {
 })
 
 test("Calls .append() method if FormData does not implement .set()", t => {
-  const appendStub = stub(FormDataNode.prototype, "append")
-  const setStub = stub(FormDataNode.prototype, "set").get(() => undefined)
+  const sandbox = createSandbox()
+
+  const appendStub = sandbox.stub(FormDataNode.prototype, "append")
+
+  sandbox.stub(FormDataNode.prototype, "set").get(() => undefined)
 
   objectToFormData({key: "value"}, {
     FormData: FormDataNode
@@ -50,8 +65,29 @@ test("Calls .append() method if FormData does not implement .set()", t => {
 
   t.true(appendStub.called)
 
-  setStub.reset()
-  appendStub.reset()
+  sandbox.restore()
+})
+
+test("Returns File as is", async t => {
+  const file = new File(["Test file content"], "test.txt", {type: "text/plain"})
+
+  const form = objectToFormData({file})
+
+  const actual = form.get("file") as File
+
+  t.true(actual instanceof File)
+  t.is(await actual.text(), await file.text())
+})
+
+test("Returns Blob as is", async t => {
+  const blob = new Blob(["Test file content"], {type: "text/plain"})
+
+  const form = objectToFormData({blob})
+
+  const actual = form.get("blob") as File
+
+  t.true(actual instanceof File)
+  t.is(await actual.text(), await blob.text())
 })
 
 test("Returns empty FormData for empty object", withSetializerTest, {
