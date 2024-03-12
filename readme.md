@@ -155,6 +155,34 @@ Result:
 [4] = "pomegranate"
 ```
 
+5. Serializing files and blobs:
+
+```ts
+import {objectToFormData} from "@octetstream/object-to-form-data"
+
+const input = [
+  {
+    caption: "Text file created with File object",
+    file: new File(["My hovercraft if full of eels"], "test.txt", {type: "text/plain"}),
+  },
+  {
+    caption: "Text data created with Blob object",
+    file: new Blob(["On Soviet Moon landscape see binoculars through you"], {type: "text/plain"}),
+  }
+]
+
+const form = objectToFormData(input)
+```
+
+Result:
+
+```
+[0][caption] = "Text file created with File object"
+[0][file] = File [type: "text/plain", name: "test.txt", content: "My hovercraft if full of eels"]
+[1][caption] = "Text data created with Blob object"
+[1][file] = File [type: "text/plain", name: "blob", content: "On Soviet Moon landscape see binoculars through you"]
+```
+
 ## API
 
 ### `objectToFormData(input[, options]): FormData`
