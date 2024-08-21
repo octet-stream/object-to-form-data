@@ -1,3 +1,4 @@
+// biome-ignore lint/suspicious/noExplicitAny: This type covers arbitary callable function, so "any" is allowed here.
 type Callable = (...any: any[]) => any
 
 /**
@@ -7,6 +8,5 @@ type Callable = (...any: any[]) => any
  *
  * @internal
  */
-export const isFunction = (
-  value: unknown
-): value is Callable => typeof value === "function"
+export const isFunction = (value: unknown): value is Callable =>
+  typeof value === "function"

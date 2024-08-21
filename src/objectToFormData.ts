@@ -156,9 +156,8 @@ export const objectToFormData: ObjectToFormData = (
   }
 
   if (
-    optionsOrStrict && !(
-      isPlainObject(optionsOrStrict) || isBoolean(optionsOrStrict)
-    )
+    optionsOrStrict &&
+    !(isPlainObject(optionsOrStrict) || isBoolean(optionsOrStrict))
   ) {
     throw new TypeError(
       "Expected the second argument to be an object or boolean."
@@ -194,9 +193,10 @@ export const objectToFormData: ObjectToFormData = (
 }
 
 /* c8 ignore next 3 */
-objectToFormData.strict = (input: Input) => objectToFormData(input, {
-  strict: true
-})
+objectToFormData.strict = (input: Input) =>
+  objectToFormData(input, {
+    strict: true
+  })
 
 /**
  * @deprecated Use objectToFormData instead

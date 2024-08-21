@@ -45,9 +45,12 @@ test("Returns FormData", t => {
 })
 
 test("Accepts custom FormData", t => {
-  const form = objectToFormData({}, {
-    FormData: FormDataNode
-  })
+  const form = objectToFormData(
+    {},
+    {
+      FormData: FormDataNode
+    }
+  )
 
   t.is(form.constructor, FormDataNode)
 })
@@ -59,9 +62,12 @@ test("Calls .append() method if FormData does not implement .set()", t => {
 
   sandbox.stub(FormDataNode.prototype, "set").get(() => undefined)
 
-  objectToFormData({key: "value"}, {
-    FormData: FormDataNode
-  })
+  objectToFormData(
+    {key: "value"},
+    {
+      FormData: FormDataNode
+    }
+  )
 
   t.true(appendStub.called)
 

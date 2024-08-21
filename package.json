@@ -12,6 +12,10 @@
     "bracket-notation",
     "dot-notation"
   ],
+  "engines": {
+    "node": ">= 18"
+  },
+  "packageManager": "pnpm@9.7.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/octet-stream/object-to-form-data.git"
@@ -33,12 +37,8 @@
   "files": [
     "lib"
   ],
-  "engines": {
-    "node": ">= 18"
-  },
   "scripts": {
     "build": "pnpm run lint:types && pnpm del-cli lib && tsup",
-    "eslint": "eslint src/**/*.ts",
     "lint:types": "tsc --noEmit",
     "test": "NODE_OPTIONS=\"--no-warnings --import tsx\" ava",
     "coverage": "c8 pnpm test",
@@ -49,16 +49,15 @@
     "prepare": "npx is-in-ci || husky install"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.3",
     "@changesets/changelog-github": "0.5.0",
     "@changesets/cli": "2.27.1",
-    "@octetstream/eslint-config": "8.0.2",
     "@size-limit/preset-small-lib": "11.0.2",
     "@types/node": "20.11.17",
     "@types/sinon": "17.0.3",
     "ava": "6.1.1",
     "c8": "9.1.0",
-    "del-cli": "^5.1.0",
-    "eslint": "8.56.0",
+    "del-cli": "5.1.0",
     "formdata-node": "6.0.3",
     "husky": "9.0.11",
     "lint-staged": "15.2.2",

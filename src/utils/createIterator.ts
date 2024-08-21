@@ -46,7 +46,7 @@ function* createRecursiveIterator(
     if (Array.isArray(value) || isPlainObject(value)) {
       yield* createRecursiveIterator(value, nextPath, strict)
     } else if (strict === true && value === false && typeof key === "string") {
-      // eslint-disable-next-line no-continue
+      // biome-ignore lint/correctness/noUnnecessaryContinue: Skip "false" values in strict mode via continue
       continue
     } else {
       yield [nextPath, value]
@@ -62,7 +62,5 @@ function* createRecursiveIterator(
  *
  * @internal
  */
-export const createIterator = (
-  input: Input,
-  strict = false
-) => createRecursiveIterator(input, [], strict)
+export const createIterator = (input: Input, strict = false) =>
+  createRecursiveIterator(input, [], strict)
