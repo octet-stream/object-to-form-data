@@ -121,6 +121,8 @@ export interface ObjectToFormData {
    *
    * @param input - An object to transform
    * @param strict - Indicates whether or not to omit every `false` values. Applied enabled. Does not affect boolean array values.
+   *
+   * @deprecated Use `objectToFormData` with options instead
    */
   (input: Input, strict?: boolean): FormData
 
