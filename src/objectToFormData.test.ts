@@ -96,6 +96,14 @@ test("Returns Blob as is", async t => {
   t.is(await actual.text(), await blob.text())
 })
 
+test("Takes boolean as the 2nd argument", t => {
+  const input = {name: "John Doe", isHireable: false}
+
+  const actual = objectToFormData(input, true)
+
+  t.false(actual.has("isHireable"))
+})
+
 test("Returns empty FormData for empty object", withSetializerTest, {
   input: {},
   expected: []

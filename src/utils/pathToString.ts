@@ -24,6 +24,7 @@ function toBracketNotation(path: Path): string {
   const [first, ...rest] = path
 
   // This will likely be unreachable, yet we check if the array is empty
+  /* c8 ignore next 3 */
   if (first == null) {
     throw new Error("Path cannot be empty")
   }

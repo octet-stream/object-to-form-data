@@ -192,7 +192,7 @@ export const objectToFormData: ObjectToFormData = (
   return form
 }
 
-/* c8 ignore next 3 */
+/* c8 ignore next 4 */
 objectToFormData.strict = (input: Input) =>
   objectToFormData(input, {
     strict: true
