@@ -46,7 +46,7 @@
     "ci": "c8 pnpm test && c8 report --reporter=json",
     "release": "pnpm run build && pnpm exec changeset publish",
     "preinstall": "npx only-allow pnpm",
-    "prepare": "npx is-in-ci || husky install"
+    "prepare": "npx is-in-ci || husky"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
