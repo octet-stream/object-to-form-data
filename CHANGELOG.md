@@ -1,5 +1,11 @@
 # @octetstream/object-to-form-data
 
+## 3.0.5
+
+### Patch Changes
+
+- [`c1ba524`](https://github.com/octet-stream/object-to-form-data/commit/c1ba524baac65fd736f1ad2cb666cb23d66d55ef) Thanks [@octet-stream](https://github.com/octet-stream)! - Add missing deprecation annotation
+
 ## 3.0.4
 
 ### Patch Changes
